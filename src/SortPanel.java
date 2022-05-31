@@ -111,7 +111,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
      *
      * @param array - an array of N integers, from 0 -> (n-1), inclusive.
      */
-    public void visualizeData(DelayedArray<Integer> array)
+    public void visualizeData(Integer[] array)
     {
         Date now = new Date();
         boolean fancy = true;
@@ -128,11 +128,36 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
                 g.setColor(getBackground());
                 g.fillRect(0, 0, getWidth(), getHeight());
 
-                int N = array.length();
+                int N = array.length;
 
                 //TODO: Enter your code here!
 
-
+                // ----------------------------------  Temporary visualizer code -- Delete this, Harlan!
+                int bottomMargin = 10;
+                int leftMargin = 10;
+                g.setColor(Color.BLACK);
+                double height_factor = (1.0*getHeight()-bottomMargin)/(4*N);
+                double width = (1.0*getWidth()-leftMargin)/N;
+                for (int i=0; i<N; i++)
+                {
+                    if (width > 1)
+                    {
+                        g.fillRect((int)(leftMargin+i*width),
+                                (int)(height_factor*(4*N-array[i])),
+                                (int)(width+1),
+                                (int)(height_factor*array[i]));
+                    }
+                    else
+                    {
+                        g.drawLine((int)(leftMargin+i*width),
+                                (int)(height_factor*(4*N-array[i])),
+                                (int)(leftMargin+i*width),
+                                (int)(getHeight()-bottomMargin));
+                    }
+                }
+                g.drawLine(leftMargin,0,leftMargin,getHeight()-bottomMargin);
+                g.drawLine(leftMargin,getHeight()-bottomMargin,getWidth(),getHeight()-bottomMargin);
+                // ------------------------------------------------------------------------------------
 
 
             }

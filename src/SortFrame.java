@@ -40,7 +40,8 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     // core variables to run sort
     private boolean isRunning;
     private SortAlgorithm currentAlgorithm;
-    private DelayedArray<Integer> currentArray;
+    private Integer[] arr; // the underlying array of ints
+    private DelayedArray<Integer> currentArray; // the DelayedArray that the user can access during sorts.
 
     // timing variables and updates
     private Date startTime;
@@ -62,7 +63,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         rightPanel.prepForArrayWithSizeN(currentArray.length());
-        rightPanel.visualizeData(currentArray);
+        rightPanel.visualizeData(arr);
         statusLabel.setText(statusMessages[SORT_STATUS_UNSORTED]);
         addComponentListener(new ResizeListener());
 
@@ -203,7 +204,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     private void initializeArray(int N)
     {
         System.out.println("initializing array.");
-        Integer[] arr = new Integer[N];
+        arr = new Integer[N];
         for (int i=0; i<N; i++)
             arr[i]=i;
         for (int i=0; i<2*N; i++)
@@ -219,7 +220,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         if (rightPanel != null)
         {
             rightPanel.prepForArrayWithSizeN(N);
-            rightPanel.visualizeData(currentArray);
+            rightPanel.visualizeData(arr);
         }
         if (statusLabel != null)
             statusLabel.setText(statusMessages[checkStatusOfCurrentArray()]);

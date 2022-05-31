@@ -45,7 +45,7 @@ public class BozoSort extends SortAlgorithm
 
             // -------------------------------------------------------------
             // include this in the middle of your algorithm to happen OFTEN.
-            delegate.visualizeData(array);
+//            delegate.visualizeData(array);
             if (!keepRunning)
                 return;
             // -------------------------------------------------------------

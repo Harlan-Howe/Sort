@@ -34,7 +34,7 @@ public abstract class SortAlgorithm extends Thread
         if (delegate != null)
         {
             delegate.SortIsFinished();
-            delegate.visualizeData(array);
+//            delegate.visualizeData(array);
         }
     }
 

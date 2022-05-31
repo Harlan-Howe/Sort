@@ -45,8 +45,9 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
 
     // timing variables and updates
     private Date startTime;
-    private Timer timeUpdater;
+    private Timer timeUpdater, visualizeTimer;
     private ClockUpdater clockUpdater;
+    private VisualizerUpdater visualizerUpdater;
 
 
     public SortFrame()
@@ -68,6 +69,9 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         addComponentListener(new ResizeListener());
 
         clockUpdater = new ClockUpdater();
+        visualizerUpdater = new VisualizerUpdater();
+        visualizeTimer = new Timer();
+        visualizeTimer.schedule(visualizerUpdater,0,16);
 
         repaint();
     }
@@ -275,7 +279,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
       try
       {    // start the algorithm!
           Class<SortAlgorithm> theAlgClass = (Class<SortAlgorithm>) Class.forName(getSelectedAlgorithmName() + "Sort");
-          Class[] parameterList = {AlgorithmDelegate.class, int[].class};
+          Class[] parameterList = {AlgorithmDelegate.class, DelayedArray.class};
           currentAlgorithm = theAlgClass.getDeclaredConstructor(parameterList).newInstance(rightPanel,currentArray);
 
           currentAlgorithm.start();
@@ -361,7 +365,8 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         if (e.getSource()==delaySlider)
         {
 //            System.out.println(delaySlider.getValue());
-            rightPanel.setDelayMS(delaySlider.getValue());
+            //rightPanel.setDelayMS(delaySlider.getValue());
+            currentArray.setMs_delay(delaySlider.getValue());
         }
     }
 
@@ -371,7 +376,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         {
             System.out.println("Resized window.");
             rightPanel.setDirtyCanvas();
-            rightPanel.visualizeData(currentArray);
+            rightPanel.visualizeData(arr);
             repaint();
         }
     }
@@ -384,6 +389,14 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
             {
                 updateTimeLabel();
             }
+        }
+    }
+
+    class VisualizerUpdater extends TimerTask
+    {
+        public void run()
+        {
+            rightPanel.visualizeData(arr);
         }
     }
 

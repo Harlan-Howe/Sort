@@ -113,11 +113,11 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
      */
     public void visualizeData(Integer[] array)
     {
-        Date now = new Date();
+        //Date now = new Date();
         boolean fancy = true;
 
-        if ((now.getTime() - lastUpdate.getTime())>17) // 33 ms = 1/30s
-        {
+//        if ((now.getTime() - lastUpdate.getTime())>17) // 33 ms = 1/30s
+//        {
             // visual_count++;
             getCanvas();
             if (myCanvas == null)
@@ -163,14 +163,14 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
             }
             repaint();
             lastUpdate = new Date();
-        }
-        try
-        {
-            Thread.sleep(delay_ms);
-        }catch (InterruptedException iExp)
-        {
-            return;
-        }
+//        }
+//        try
+//        {
+//            Thread.sleep(delay_ms);
+//        }catch (InterruptedException iExp)
+//        {
+//            return;
+//        }
     }
 
     /**

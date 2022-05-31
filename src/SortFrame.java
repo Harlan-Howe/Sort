@@ -67,7 +67,8 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         addComponentListener(new ResizeListener());
 
         clockUpdater = new ClockUpdater();
-
+        DelayManager dm = new DelayManager();
+        dm.start();
         repaint();
     }
 
@@ -381,6 +382,34 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
             {
                 updateTimeLabel();
             }
+        }
+    }
+
+    class DelayManager extends Thread
+    {
+        public void run()
+        {
+            while (true)
+            {
+                try
+                {
+                    if (isRunning)
+                    {
+                        synchronized (currentArray)
+                        {
+
+                            Thread.sleep(delaySlider.getValue() *100);
+                        }
+                        Thread.sleep(delaySlider.getValue() / 2);
+                    } else
+                        Thread.sleep(1);
+                }catch (InterruptedException iExp)
+                {
+                    return;
+                }
+            }
+
+
         }
     }
 

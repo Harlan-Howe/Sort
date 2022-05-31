@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="" />
+    <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,15 +24,20 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1YwoExYOk57e7TU0ShQ9XQB4tYO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunManager" selected="Application.GraphicRunner">

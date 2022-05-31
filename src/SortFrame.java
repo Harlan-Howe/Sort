@@ -40,7 +40,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     // core variables to run sort
     private boolean isRunning;
     private SortAlgorithm currentAlgorithm;
-    private int[] currentArray;
+    private DelayedArray<Integer> currentArray;
 
     // timing variables and updates
     private Date startTime;
@@ -61,7 +61,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         setVisible(true);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        rightPanel.prepForArrayWithSizeN(currentArray.length);
+        rightPanel.prepForArrayWithSizeN(currentArray.length());
         rightPanel.visualizeData(currentArray);
         statusLabel.setText(statusMessages[SORT_STATUS_UNSORTED]);
         addComponentListener(new ResizeListener());
@@ -203,17 +203,19 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     private void initializeArray(int N)
     {
         System.out.println("initializing array.");
-        currentArray = new int[N];
+        Integer[] arr = new Integer[N];
         for (int i=0; i<N; i++)
-            currentArray[i]=i;
+            arr[i]=i;
         for (int i=0; i<2*N; i++)
         {
             int a = (int)(Math.random()*N);
             int b = (int)(Math.random()*N);
-            int temp = currentArray[a];
-            currentArray[a] = currentArray[b];
-            currentArray[b] = temp;
+            int temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
         }
+        currentArray = new DelayedArray<Integer>(arr);
+
         if (rightPanel != null)
         {
             rightPanel.prepForArrayWithSizeN(N);
@@ -298,11 +300,11 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     {
         if (currentArray == null)
             return SORT_STATUS_NULL;
-        for (int i=1; i<currentArray.length; i++)
+        for (int i=1; i<currentArray.length(); i++)
         {
-            if (currentArray[i] == currentArray[i - 1])
-                return SORT_STATUS_DUPLICATES;
-            if (currentArray[i] < currentArray[i - 1])
+//            if (currentArray.getValueAtLocation(i) == currentArray.getValueAtLocation(i - 1))
+//                return SORT_STATUS_DUPLICATES;
+            if (currentArray.getValueAtLocation(i) < currentArray.getValueAtLocation(i - 1))
                 return SORT_STATUS_UNSORTED;
         }
         return SORT_STATUS_SORTED;

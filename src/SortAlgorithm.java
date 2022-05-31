@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 public abstract class SortAlgorithm extends Thread
 {
     protected AlgorithmDelegate delegate;
-    protected int[] array;
+    protected DelayedArray<Integer> array;
     protected boolean keepRunning = true;
 
     /**
@@ -12,7 +12,7 @@ public abstract class SortAlgorithm extends Thread
      * @param del - An object implementing the AlgorithmDelegate interface, either SortPanel or TextRunner.
      * @param array - An array of N integers, from 0 -> (N-1), inclusive, initially in random order.
      */
-    public SortAlgorithm(AlgorithmDelegate del, int[] array)
+    public SortAlgorithm(AlgorithmDelegate del, DelayedArray<Integer> array)
     {
         delegate = del;
         this.array = array;

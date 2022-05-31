@@ -93,7 +93,7 @@ public class TextRunner implements AlgorithmDelegate
     }
 
     @Override
-    public void visualizeData(int[] array)
+    public void visualizeData(DelayedArray<Integer> array)
     {
         // I've commented this out - it would be a way to add a millisecond delay to each step of your algorithm.
         // Reactivate if your sorts are happening too quickly to time! (But be consistent....)

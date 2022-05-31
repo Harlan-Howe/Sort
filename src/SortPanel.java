@@ -111,7 +111,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
      *
      * @param array - an array of N integers, from 0 -> (n-1), inclusive.
      */
-    public void visualizeData(int [] array)
+    public void visualizeData(DelayedArray<Integer> array)
     {
         Date now = new Date();
         boolean fancy = true;
@@ -128,7 +128,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
                 g.setColor(getBackground());
                 g.fillRect(0, 0, getWidth(), getHeight());
 
-                int N = array.length;
+                int N = array.length();
 
                 //TODO: Enter your code here!
 

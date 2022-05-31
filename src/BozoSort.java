@@ -1,6 +1,6 @@
 public class BozoSort extends SortAlgorithm
 {
-    public BozoSort(AlgorithmDelegate del, int[] array)
+    public BozoSort(AlgorithmDelegate del, DelayedArray<Integer> array)
     {
         super(del,array);
     }
@@ -12,26 +12,36 @@ public class BozoSort extends SortAlgorithm
      */
     private boolean isSorted()
     {
-        for (int i=1; i< array.length; i++)
-            if (array[i] < array[i-1])
+        for (int i=1; i< array.length(); i++)
+            if (array.getValueAtLocation(i) < array.getValueAtLocation(i-1))
                 return false;
         return true;
     }
 
 
     /**
+     * Exchanges values at locations a & b. Note: this causes four delays - two for access and two for updates.
+     * @param a
+     * @param b
+     */
+    public void swap(int a, int b)
+    {
+        Integer temp = array.getValueAtLocation(a);
+        array.setValueAtLocation(array.getValueAtLocation(b), a);
+        array.setValueAtLocation(temp, b);
+    }
+
+    /**
      * algorithm that does this particular sort, in this case, the Bozo sort.
      */
     public void run()
     {
-        int N = array.length;
+        int N = array.length();
         while(true)
         {
             int i = (int)(Math.random()*N);
             int j = (int)(Math.random()*N);
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+            swap(i, j);
 
             // -------------------------------------------------------------
             // include this in the middle of your algorithm to happen OFTEN.

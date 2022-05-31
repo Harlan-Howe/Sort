@@ -135,11 +135,12 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
                 // ----------------------------------  Temporary visualizer code -- Delete this, Harlan!
                 int bottomMargin = 10;
                 int leftMargin = 10;
-                g.setColor(Color.BLACK);
+                //g.setColor(Color.BLACK);
                 double height_factor = (1.0*getHeight()-bottomMargin)/(4*N);
                 double width = (1.0*getWidth()-leftMargin)/N;
                 for (int i=0; i<N; i++)
                 {
+                    g.setColor(colors[array[i]/4]);
                     if (width > 1)
                     {
                         g.fillRect((int)(leftMargin+i*width),
@@ -155,6 +156,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
                                 (int)(getHeight()-bottomMargin));
                     }
                 }
+                g.setColor(Color.black);
                 g.drawLine(leftMargin,0,leftMargin,getHeight()-bottomMargin);
                 g.drawLine(leftMargin,getHeight()-bottomMargin,getWidth(),getHeight()-bottomMargin);
                 // ------------------------------------------------------------------------------------
@@ -180,6 +182,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     {
         dirtyCanvas = true;
     }
+
 
 
 }

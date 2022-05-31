@@ -209,8 +209,19 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     {
         System.out.println("initializing array.");
         arr = new Integer[N];
+        int n2 = 0;
         for (int i=0; i<N; i++)
-            arr[i]=i;
+        {
+            n2+= (int)Math.sqrt(36*Math.random());
+            // a bit of sneakiness here. Statistically, n2 should max out at 4N, by my calculations.
+            //   however, since we're dealing with randomness, there is the possibility that we might
+            //   draw a lot of high numbers and go over 4N-1 (particularly if N is small). So
+            //   if that happens, we cheat and pick a random number, instead.
+            if (n2<4*N)
+                arr[i] = n2;
+            else
+                arr[i] = (int)(4*N*Math.random());
+        }
         for (int i=0; i<2*N; i++)
         {
             int a = (int)(Math.random()*N);

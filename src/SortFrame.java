@@ -203,6 +203,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     public void handleArrayResize(int newN)
     {
         initializeArray(newN);
+
     }
 
     private void initializeArray(int N)
@@ -230,12 +231,14 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
             arr[a] = arr[b];
             arr[b] = temp;
         }
-        currentArray = new DelayedArray<Integer>(arr);
-
+        if (delaySlider == null)
+            currentArray = new DelayedArray<Integer>(arr);
+        else
+            currentArray = new DelayedArray<Integer>(arr,delaySlider.getValue());
         if (rightPanel != null)
         {
             rightPanel.prepForArrayWithSizeN(N);
-            rightPanel.visualizeData(arr);
+            //rightPanel.visualizeData(arr);
         }
         if (statusLabel != null)
             statusLabel.setText(statusMessages[checkStatusOfCurrentArray()]);
@@ -254,8 +257,10 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         int statusCode = checkStatusOfCurrentArray();
         if (statusCode != -1)
             statusLabel.setText(statusMessages[statusCode]);
-        timeUpdater.cancel();
-        updateTimeLabel();
+        if (timeUpdater!=null)
+            timeUpdater.cancel();
+        if (startTime != null)
+            updateTimeLabel();
     }
 
     public void handleRunButton()
@@ -302,8 +307,10 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
 
       }catch (ClassNotFoundException cnfExp)
       {
-          System.out.println("You tried to create a "+getSelectedAlgorithmName()+"Sort object, but that class does not yet exist.");
-          cnfExp.printStackTrace();
+//          System.out.println("You tried to create a "+getSelectedAlgorithmName()+"Sort object, but that class does not yet exist.");
+          JOptionPane.showMessageDialog(this,"You tried to create a "+getSelectedAlgorithmName()+"Sort object, but that class does not yet exist.");
+//          cnfExp.printStackTrace();
+          endRunGUI();
       }
       catch (Exception exp)
       {

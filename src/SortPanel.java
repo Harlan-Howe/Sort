@@ -10,11 +10,11 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     private BufferedImage myCanvas;
     private boolean dirtyCanvas;
     private SortFrame myFrame;
-    int visual_count;
     private int delay_ms;
     private double sines[], cosines[];
     private Color colors[];
     private Date lastUpdate; // ADDED
+    private int expected_N;
 
     public SortPanel(SortFrame myFrame)
     {
@@ -22,7 +22,6 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         dirtyCanvas = true;
         setBackground(Color.lightGray);
         this.myFrame = myFrame;
-        visual_count = 0;
         lastUpdate = new Date(); // ADDED
         delay_ms = 1; // ADDED
     }
@@ -86,11 +85,13 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     public void prepForArrayWithSizeN(int N)
     {
         System.out.println("Prepping - new array size "+N);
+
         // TODO: Optional. If there are any pre-calculations (such as generating a list of sines and cosines) you wish
         //  to do when N changes, before the algorithm runs, add them here.
         sines = new double[N+1];
         cosines = new double[N+1];
         colors = new Color[N];
+
         double delta = 2*Math.PI/N;
         for (int i=0; i<N; i++)
         {
@@ -101,6 +102,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         sines[N] = 0;
         cosines[N] = 1;
 
+        expected_N = N;
     }
 
     /**
@@ -113,66 +115,65 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
      */
     public void visualizeData(Integer[] array)
     {
-        //Date now = new Date();
-        boolean fancy = true;
 
-//        if ((now.getTime() - lastUpdate.getTime())>17) // 33 ms = 1/30s
-//        {
-            // visual_count++;
-            getCanvas();
-            if (myCanvas == null)
-                return;
-            synchronized (myCanvas)
+        getCanvas();
+        if (myCanvas == null)
+            return;
+
+        int N = array.length;
+        if (N != expected_N) // if we aren't quite synched up with prepForArrayWithSize(), which could happen in
+                             // a multithreaded program....
+        {
+            System.out.println("N = "+N+" expected_N = "+expected_N);
+            return;
+        }
+        int w = getWidth();
+        int h = getHeight();
+
+        synchronized (myCanvas)
+        {
+            Graphics g = myCanvas.getGraphics();
+            g.setColor(getBackground());
+            g.fillRect(0, 0, getWidth(), getHeight());
+
+
+
+            //TODO: Enter your code here!
+
+            // ----------------------------------  Temporary visualizer code -- Delete this, Harlan!
+            int bottomMargin = 10;
+            int leftMargin = 10;
+            //g.setColor(Color.BLACK);
+            double height_factor = (1.0*getHeight()-bottomMargin)/(4*N);
+            double width = (1.0*getWidth()-leftMargin)/N;
+            for (int i=0; i<N; i++)
             {
-                Graphics g = myCanvas.getGraphics();
-                g.setColor(getBackground());
-                g.fillRect(0, 0, getWidth(), getHeight());
-
-                int N = array.length;
-
-                //TODO: Enter your code here!
-
-                // ----------------------------------  Temporary visualizer code -- Delete this, Harlan!
-                int bottomMargin = 10;
-                int leftMargin = 10;
-                //g.setColor(Color.BLACK);
-                double height_factor = (1.0*getHeight()-bottomMargin)/(4*N);
-                double width = (1.0*getWidth()-leftMargin)/N;
-                for (int i=0; i<N; i++)
+                g.setColor(colors[array[i]/4]);
+                if (width > 1)
                 {
-                    g.setColor(colors[array[i]/4]);
-                    if (width > 1)
-                    {
-                        g.fillRect((int)(leftMargin+i*width),
-                                (int)(height_factor*(4*N-array[i])),
-                                (int)(width+1),
-                                (int)(height_factor*array[i]));
-                    }
-                    else
-                    {
-                        g.drawLine((int)(leftMargin+i*width),
-                                (int)(height_factor*(4*N-array[i])),
-                                (int)(leftMargin+i*width),
-                                (int)(getHeight()-bottomMargin));
-                    }
+                    g.fillRect((int)(leftMargin+i*width),
+                            (int)(height_factor*(4*N-array[i])),
+                            (int)(width+1),
+                            (int)(height_factor*array[i]));
                 }
-                g.setColor(Color.black);
-                g.drawLine(leftMargin,0,leftMargin,getHeight()-bottomMargin);
-                g.drawLine(leftMargin,getHeight()-bottomMargin,getWidth(),getHeight()-bottomMargin);
-                // ------------------------------------------------------------------------------------
-
-
+                else
+                {
+                    g.drawLine((int)(leftMargin+i*width),
+                            (int)(height_factor*(4*N-array[i])),
+                            (int)(leftMargin+i*width),
+                            (int)(getHeight()-bottomMargin));
+                }
             }
-            repaint();
-            lastUpdate = new Date();
-//        }
-//        try
-//        {
-//            Thread.sleep(delay_ms);
-//        }catch (InterruptedException iExp)
-//        {
-//            return;
-//        }
+            g.setColor(Color.black);
+            g.drawLine(leftMargin,0,leftMargin,getHeight()-bottomMargin);
+            g.drawLine(leftMargin,getHeight()-bottomMargin,getWidth(),getHeight()-bottomMargin);
+            // ------------------------------------------------------------------------------------
+
+
+        }
+        repaint();
+        lastUpdate = new Date();
+
     }
 
     /**

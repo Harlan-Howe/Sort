@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="7gtrz72y" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -39,9 +43,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;/Users/harlan.howe/IdeaProjects/Sort2023-development&quot;
+  }
+}</component>
   <component name="RunManager" selected="Application.GraphicRunner">
     <configuration name="GraphicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphicRunner" />
@@ -124,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654029656354</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer.">
+      <created>1654030736537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654030736537</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +174,7 @@
     <MESSAGE value="Change: delegates (including SortPanel and TextRunner) will get raw array of Integers; SortAlgorithms will get DelayedArray&lt;Integer&gt;." />
     <MESSAGE value="Cleanup; added code to automatically call visualize data, on a timer." />
     <MESSAGE value="updated timer for visualizer to 1/60 second; commented code to throttle visualizer to 1/60 second in visualizeData method in SortPanel." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated timer for visualizer to 1/60 second; commented code to throttle visualizer to 1/60 second in visualizeData method in SortPanel." />
+    <MESSAGE value="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer." />
+    <option name="LAST_COMMIT_MESSAGE" value="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer." />
   </component>
 </project>

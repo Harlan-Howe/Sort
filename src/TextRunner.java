@@ -10,7 +10,7 @@ public class TextRunner implements AlgorithmDelegate
     int trialSize;
     SortAlgorithm currentAlgorithm;
     Date startTime;
-    int[] array;
+    Integer[] array;
 
     public static void main(String[] args)
     {
@@ -64,7 +64,7 @@ public class TextRunner implements AlgorithmDelegate
             currentN = N;
             for (int iteration=0; iteration < trialSize; iteration++)
             {
-                array = new int[N];
+                array = new Integer[N];
                 for (int i=0 ; i<N; i++)
                     array[i]=i;
                 for (int i=0; i<2*N; i++)
@@ -75,11 +75,12 @@ public class TextRunner implements AlgorithmDelegate
                     array[a] = array[b];
                     array[b] = temp;
                 }
+                DelayedArray da = new DelayedArray<Integer>(array,0);
                 startTime = new Date();
-                Class[] parameterList = {AlgorithmDelegate.class, int[].class};
+                Class[] parameterList = {AlgorithmDelegate.class, DelayedArray.class};
                 try
                 {
-                    currentAlgorithm = theAlgClass.getDeclaredConstructor(parameterList).newInstance(this, array);
+                    currentAlgorithm = theAlgClass.getDeclaredConstructor(parameterList).newInstance(this, da);
                 }
                 catch (Exception exp)
                 {
@@ -113,11 +114,11 @@ public class TextRunner implements AlgorithmDelegate
     public void SortIsFinished()
     {
         Date now = new Date();
-        double secondsExpired = (now.getTime()-startTime.getTime())/1000.0;
-        System.out.print(currentN+"\t"+secondsExpired);
+        long millisecondsExpired = (now.getTime()-startTime.getTime());
+        System.out.print(currentN+"\t"+millisecondsExpired);
         for (int i=1; i<currentN; i++)
         {
-            if (array[i]<=array[i-1])
+            if (array[i]<array[i-1])
             {
                 System.out.print("\tERROR-not sorted.");
                 break;

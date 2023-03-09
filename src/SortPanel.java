@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 import java.util.Date;
 
@@ -126,23 +124,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
             return;
 
         int N = array.length;
-        int delayCountForExpectedN = 0;
-        while (N != expected_N) // if we aren't quite synched up with prepForArrayWithSize(), which could happen in
-                             // a multithreaded program....
-        {
-            System.out.println("Waiting for expected_N to update. N = "+N+" expected_N = "+expected_N);
-            try { Thread.sleep(100);} // wait for 0.1 seconds
-            catch (InterruptedException iExp)
-                { iExp.printStackTrace(); }
-
-            if (delayCountForExpectedN > 50) // had to wait over five seconds to start...
-            {
-                System.out.println("Delay to print took too long.");
-                JOptionPane.showMessageDialog(this,"Delay to print took too long. Quitting program.");
-                System.exit(1);
-            }
-            delayCountForExpectedN++;
-        }
+        waitForNtoMatchExpectedN(N);
         int w = getWidth();
         int h = getHeight();
 
@@ -150,17 +132,51 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         {
             Graphics g = myCanvas.getGraphics();
             g.setColor(getBackground());
-            g.fillRect(0, 0, w, h);
+            g.fillRect(0, 0, w, h); // clear the canvas.
 
+            // -------------------
             //TODO: Enter your code here!
-            //Note: the width of the bars should depend on the width of the window (w) and the number of bars (N).
-            //      The height of each bar should depend on the actual value of the array[i], as well as
-            //      the height of the window (h) and the maximum possible value of the bars (4*N).
+            //Note: the width of the bars should depend on the width of the canvas (w) and the number of bars (N).
+            //      (However, the width of the bars cannot be less than one - if it would be, just draw lines, even if
+            //      they overlap.)
+            //      The height of each bar should depend on the actual value of array[i], as well as
+            //      the height of the canvas (h) and the maximum possible value of the bars (4*N).
 
+
+            // ------------------
         }
         repaint();
         lastUpdate = new Date();
 
+    }
+
+    /**
+     * It is possible that N and expected_N are out of synch because of multithreading. This method will
+     * force the program to wait for as long as 5 seconds to let them match up. If it has been over
+     * 5 seconds and they still don't match, it pops up an alert and quits the program.
+     * @param N - the size of the array, which should match the one calcuated by prepForArrayWIthSizeN.
+     */
+    private void waitForNtoMatchExpectedN(int N)
+    {
+        int delayCountForExpectedN = 0;
+        while (N != expected_N) // if we aren't quite synched up with prepForArrayWithSize(), which could happen in
+                             // a multithreaded program....
+        {
+            System.out.println("Waiting for expected_N to update. N = "+ N +" expected_N = "+expected_N);
+            try { Thread.sleep(100);} // wait for 0.1 seconds
+            catch (InterruptedException iExp)
+                { iExp.printStackTrace(); }
+
+            if (delayCountForExpectedN > 50) // had to wait over five seconds to start...
+            {
+                JOptionPane.showMessageDialog(this, "I had to wait over 5 seconds to synch N and expected_N. " +
+                        "Quitting program.");
+                throw new RuntimeException("I had to wait over 5 seconds to synch N ("+N+") and expected_N ("+
+                        expected_N+"). Quitting program.");
+            }
+
+            delayCountForExpectedN++;
+        }
     }
 
     /**

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sort2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sort2023.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +46,30 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/harlan.howe/IdeaProjects/Sort2023-development&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.GraphicRunner">
+  <component name="RunManager" selected="Application.TextRunner">
     <configuration name="GraphicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphicRunner" />
-      <module name="Sort2022" />
+      <module name="Sort2023" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TextRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TextRunner" />
-      <module name="Sort2022" />
+      <module name="Sort2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Sort2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Sort2023" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -67,8 +80,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
+        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
       </list>
@@ -149,7 +162,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678379581818</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Removed my solution code for visualizeData&#10;Commented out my prep code in preForArrayWithSize, but kept it.">
+      <created>1678382888227</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678382888227</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData().">
+      <created>1678383747649</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678383747649</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +216,8 @@
     <MESSAGE value="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer." />
     <MESSAGE value="Attempting to run a sorter that doesn't exist yet fails gracefully with a popup message, instead of crashing the program." />
     <MESSAGE value="TextRunner now prompts for a delay for sorts." />
-    <option name="LAST_COMMIT_MESSAGE" value="TextRunner now prompts for a delay for sorts." />
+    <MESSAGE value="Removed my solution code for visualizeData&#10;Commented out my prep code in preForArrayWithSize, but kept it." />
+    <MESSAGE value="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData()." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData()." />
   </component>
 </project>

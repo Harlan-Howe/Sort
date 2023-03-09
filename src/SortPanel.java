@@ -88,6 +88,8 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
 
         // TODO: Optional. If there are any pre-calculations (such as generating a list of sines and cosines) you wish
         //  to do when N changes, before the algorithm runs, add them here.
+        /*
+        // for example....
         sines = new double[N+1];
         cosines = new double[N+1];
         colors = new Color[N];
@@ -101,31 +103,45 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         }
         sines[N] = 0;
         cosines[N] = 1;
+        */
 
-        expected_N = N;
+        // -----------------------
+        expected_N = N; // you must have this.
     }
 
     /**
      * draw a representation of the array on the screen.
      * Note: you'll want this to be very fast, so if you are using time-intensive functions, like generating 10,000
-     * colors or calling sine and cosine for 10,000 angles, it might make sense to pre-calculate them in "prepForArrayWithSizeN"
-     * (above), store them in an array, and then access items in that array here.
-     *
+     *    colors or calling sine and cosine for 10,000 angles, it might make sense to pre-calculate them in
+     *    "prepForArrayWithSizeN" (above), store them in arrays, and then access items in those arrays here.
+     * Note#2: (This note will only make sense once you start writing the sorts...) Because we are trying to go as fast
+     *    as possible and this isn't the part that we really want to affect our timing, we are using "array" and not the
+     *    DelayedArray, so this won't be affected by the delay selected in the slider.
      * @param array - an array of N integers, from 0 -> (n-1), inclusive.
      */
     public void visualizeData(Integer[] array)
     {
-
         getCanvas();
         if (myCanvas == null)
             return;
 
         int N = array.length;
-        if (N != expected_N) // if we aren't quite synched up with prepForArrayWithSize(), which could happen in
+        int delayCountForExpectedN = 0;
+        while (N != expected_N) // if we aren't quite synched up with prepForArrayWithSize(), which could happen in
                              // a multithreaded program....
         {
-            System.out.println("N = "+N+" expected_N = "+expected_N);
-            return;
+            System.out.println("Waiting for expected_N to update. N = "+N+" expected_N = "+expected_N);
+            try { Thread.sleep(100);} // wait for 0.1 seconds
+            catch (InterruptedException iExp)
+                { iExp.printStackTrace(); }
+
+            if (delayCountForExpectedN > 50) // had to wait over five seconds to start...
+            {
+                System.out.println("Delay to print took too long.");
+                JOptionPane.showMessageDialog(this,"Delay to print took too long. Quitting program.");
+                System.exit(1);
+            }
+            delayCountForExpectedN++;
         }
         int w = getWidth();
         int h = getHeight();
@@ -134,41 +150,12 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         {
             Graphics g = myCanvas.getGraphics();
             g.setColor(getBackground());
-            g.fillRect(0, 0, getWidth(), getHeight());
-
-
+            g.fillRect(0, 0, w, h);
 
             //TODO: Enter your code here!
-
-            // ----------------------------------  Temporary visualizer code -- Delete this, Harlan!
-            int bottomMargin = 10;
-            int leftMargin = 10;
-            //g.setColor(Color.BLACK);
-            double height_factor = (1.0*getHeight()-bottomMargin)/(4*N);
-            double width = (1.0*getWidth()-leftMargin)/N;
-            for (int i=0; i<N; i++)
-            {
-                g.setColor(colors[array[i]/4]);
-                if (width > 1)
-                {
-                    g.fillRect((int)(leftMargin+i*width),
-                            (int)(height_factor*(4*N-array[i])),
-                            (int)(width+1),
-                            (int)(height_factor*array[i]));
-                }
-                else
-                {
-                    g.drawLine((int)(leftMargin+i*width),
-                            (int)(height_factor*(4*N-array[i])),
-                            (int)(leftMargin+i*width),
-                            (int)(getHeight()-bottomMargin));
-                }
-            }
-            g.setColor(Color.black);
-            g.drawLine(leftMargin,0,leftMargin,getHeight()-bottomMargin);
-            g.drawLine(leftMargin,getHeight()-bottomMargin,getWidth(),getHeight()-bottomMargin);
-            // ------------------------------------------------------------------------------------
-
+            //Note: the width of the bars should depend on the width of the window (w) and the number of bars (N).
+            //      The height of each bar should depend on the actual value of the array[i], as well as
+            //      the height of the window (h) and the maximum possible value of the bars (4*N).
 
         }
         repaint();

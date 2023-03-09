@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TextRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextRunner.java" afterDir="false" />
     </list>
@@ -48,7 +46,7 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/harlan.howe/IdeaProjects/Sort2023-development&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.GraphicRunner">
+  <component name="RunManager" selected="Application.TextRunner">
     <configuration name="GraphicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphicRunner" />
       <module name="Sort2022" />
@@ -69,8 +67,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
+        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
       </list>
@@ -137,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654030736537</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Attempting to run a sorter that doesn't exist yet fails gracefully with a popup message, instead of crashing the program.">
+      <created>1678377806307</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678377806307</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +180,7 @@
     <MESSAGE value="Cleanup; added code to automatically call visualize data, on a timer." />
     <MESSAGE value="updated timer for visualizer to 1/60 second; commented code to throttle visualizer to 1/60 second in visualizeData method in SortPanel." />
     <MESSAGE value="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer." />
-    <option name="LAST_COMMIT_MESSAGE" value="This version was based on the 2020 code; I had upgraded a little to 2021 and we had to manually upgrade in 2022; this incorporates those changes; Notably, for N items, the numbers in the array now range from [0,4N], with the possibility of duplicates. There had also been some other code to start the visualizer off with a timer based on 1970, but that is no longer required, based on the new timer for the visualizer." />
+    <MESSAGE value="Attempting to run a sorter that doesn't exist yet fails gracefully with a popup message, instead of crashing the program." />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempting to run a sorter that doesn't exist yet fails gracefully with a popup message, instead of crashing the program." />
   </component>
 </project>

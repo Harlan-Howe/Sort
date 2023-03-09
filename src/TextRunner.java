@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TextRunner implements AlgorithmDelegate
@@ -11,6 +12,7 @@ public class TextRunner implements AlgorithmDelegate
     SortAlgorithm currentAlgorithm;
     Date startTime;
     Integer[] array;
+    int delayMilliseconds;
 
     public static void main(String[] args)
     {
@@ -57,8 +59,28 @@ public class TextRunner implements AlgorithmDelegate
         System.out.println("How many iterations per N value?");
         trialSize = keyboard.nextInt();
 
+        delayMilliseconds = -1;
+        while (delayMilliseconds<0)
+        {
+            System.out.println("What delay should you use? (Suggested 0 or 1)");
+            try
+            {
+                delayMilliseconds = keyboard.nextInt();
+                if (delayMilliseconds<0)
+                    System.out.println("Please pick a non-negative number.");
+            }
+            catch (InputMismatchException imExp)
+            {
+                System.out.println("That was not an acceptable value. Try again");
+                if (keyboard.hasNext())
+                    keyboard.nextLine();
+            }
+
+        }
+
         // We're done asking questions - now do the runs!
-        System.out.println(sortName);
+        System.out.println("Running "+sortName+" with delay "+delayMilliseconds+"ms.");
+        System.out.println("N\tTime to sort (ms)");
         for (int N : NList)
         {
             currentN = N;
@@ -75,7 +97,7 @@ public class TextRunner implements AlgorithmDelegate
                     array[a] = array[b];
                     array[b] = temp;
                 }
-                DelayedArray da = new DelayedArray<Integer>(array,0);
+                DelayedArray da = new DelayedArray<Integer>(array,delayMilliseconds);
                 startTime = new Date();
                 Class[] parameterList = {AlgorithmDelegate.class, DelayedArray.class};
                 try

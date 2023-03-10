@@ -6,7 +6,7 @@ public class BozoSort extends SortAlgorithm
     }
 
     /**
-     * determines whether the list is sorted now, an O(N) process. Necessary for BozoSort, but not recommeneded for
+     * determines whether the list is sorted now, an O(N) process. Necessary for BozoSort, but not recommended for
      * other sorts.
      * @return true, if variable "array" is in ascending order.
      */

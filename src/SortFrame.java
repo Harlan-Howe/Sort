@@ -223,14 +223,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
             else
                 arr[i] = (int)(4*N*Math.random());
         }
-        for (int i=0; i<2*N; i++)
-        {
-            int a = (int)(Math.random()*N);
-            int b = (int)(Math.random()*N);
-            int temp = arr[a];
-            arr[a] = arr[b];
-            arr[b] = temp;
-        }
+        shuffleArray();
         if (delaySlider == null)
             currentArray = new DelayedArray<Integer>(arr);
         else
@@ -244,6 +237,22 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
             statusLabel.setText(statusMessages[checkStatusOfCurrentArray()]);
 
 
+    }
+
+    /**
+     * scrambles the order of the items in arr
+     */
+    private void shuffleArray()
+    {
+        int N = arr.length;
+        for (int i = 0; i<2* N; i++)
+        {
+            int a = (int)(Math.random()* N);
+            int b = (int)(Math.random()* N);
+            int temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
+        }
     }
 
     public void endRunGUI()

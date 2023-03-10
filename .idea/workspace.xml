@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sort2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sort2023.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BozoSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BozoSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +57,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HarlanPracticeRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HarlanPracticeRunner" />
+      <module name="Sort2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TextRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TextRunner" />
       <module name="Sort2023" />
@@ -75,12 +85,14 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.HarlanPracticeRunner" />
       <item itemvalue="Application.GraphicRunner" />
       <item itemvalue="Application.TextRunner" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TextRunner" />
+        <item itemvalue="Application.HarlanPracticeRunner" />
         <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
@@ -176,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678383747649</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Renamed project from Sort2022 to Sort2023">
+      <created>1678384014537</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678384014537</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +237,7 @@
     <MESSAGE value="TextRunner now prompts for a delay for sorts." />
     <MESSAGE value="Removed my solution code for visualizeData&#10;Commented out my prep code in preForArrayWithSize, but kept it." />
     <MESSAGE value="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData()." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData()." />
+    <MESSAGE value="Renamed project from Sort2022 to Sort2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed project from Sort2022 to Sort2023" />
   </component>
 </project>

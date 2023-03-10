@@ -108,7 +108,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     }
 
     /**
-     * draw a representation of the array on the screen.
+     * Draw a representation of the array on the screen.
      * Note: you'll want this to be very fast, so if you are using time-intensive functions, like generating 10,000
      *    colors or calling sine and cosine for 10,000 angles, it might make sense to pre-calculate them in
      *    "prepForArrayWithSizeN" (above), store them in arrays, and then access items in those arrays here.

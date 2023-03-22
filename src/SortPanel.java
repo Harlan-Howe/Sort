@@ -11,7 +11,6 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     private int delay_ms;
     private double sines[], cosines[];
     private Color colors[];
-    private Date lastUpdate; // ADDED
     private int expected_N;
 
     public SortPanel(SortFrame myFrame)
@@ -20,7 +19,6 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         dirtyCanvas = true;
         setBackground(Color.lightGray);
         this.myFrame = myFrame;
-        lastUpdate = new Date(); // ADDED
         delay_ms = 1; // ADDED
     }
 
@@ -47,7 +45,6 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
      */
     public void SortIsFinished()
     {
-        lastUpdate = new Date(0); // set the last update to 1970!
 
         myFrame.endRunGUI();
     }
@@ -145,7 +142,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
             // ------------------
         }
         repaint();
-        lastUpdate = new Date();
+
     }
 
     /**

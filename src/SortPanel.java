@@ -142,12 +142,10 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
             //      The height of each bar should depend on the actual value of array[i], as well as
             //      the height of the canvas (h) and the maximum possible value of the bars (4*N).
 
-
             // ------------------
         }
         repaint();
         lastUpdate = new Date();
-
     }
 
     /**

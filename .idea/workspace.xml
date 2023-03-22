@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="0e35f86f-815a-4474-b479-fb79024e22a2" name="Default Changelist" comment="Removed call to visualize data (not needed).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BozoSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BozoSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,12 +41,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/Users/harlan.howe/IdeaProjects/Sort2023-development&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/Users/harlan.howe/IdeaProjects/Sort2023-development",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
-  <component name="RunManager" selected="Application.TextRunner">
+}]]></component>
+  <component name="RunManager" selected="Application.GraphicRunner">
     <configuration name="GraphicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GraphicRunner" />
       <module name="Sort2023" />
@@ -91,9 +89,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
         <item itemvalue="Application.HarlanPracticeRunner" />
-        <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.GraphicRunner" />
         <item itemvalue="Application.TextRunner" />
       </list>
@@ -195,7 +193,35 @@
       <option name="project" value="LOCAL" />
       <updated>1678384014537</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed typo in comment.">
+      <created>1678459419842</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678459419842</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed typo in comment.">
+      <created>1678459676824</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678459676824</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Refactored to extract shuffleArray() method.">
+      <created>1678459711715</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678459711715</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Removed call to visualize data (not needed).">
+      <created>1679410749618</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1679410749618</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,6 +264,13 @@
     <MESSAGE value="Removed my solution code for visualizeData&#10;Commented out my prep code in preForArrayWithSize, but kept it." />
     <MESSAGE value="refactored to extract delay to let N and expected_N to synch up. &#10;A little bit of improved documentation for students in visualizeData()." />
     <MESSAGE value="Renamed project from Sort2022 to Sort2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed project from Sort2022 to Sort2023" />
+    <MESSAGE value="Fixed typo in comment." />
+    <MESSAGE value="Refactored to extract shuffleArray() method." />
+    <MESSAGE value="Removed call to visualize data (not needed)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed call to visualize data (not needed)." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

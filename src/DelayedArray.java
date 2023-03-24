@@ -100,4 +100,31 @@ public class DelayedArray<T>
     }
 
 
+    /**
+     * creates a new DelayedArray of the same type as this, along with the same delay time and autoloads it with a copy
+     * of the data in this from start (inclusive) to end(exclusive). This should be similar syntax to substring(a,b) or
+     * subarray(a, b).
+     * @param start - the beginning of the range of data to include
+     * @param end - one past the end of the range of data to include
+     * @return - a DelayedArray of the same type that has the data from a range in this DelayedArray.
+     */
+    public DelayedArray<T> subArray(int start, int end)
+    {
+
+        if (start<0 || end<0 || start>= this.length() || end>=this.length())
+            throw new ArrayIndexOutOfBoundsException("Range from "+start+" to "+end+
+                    " is out of range for a Delayed Array of length "+this.length()+".");
+        if (end < start)
+            throw new RuntimeException("Attempted to get a subArray of a DelayedArray where end is before start."+
+                    " Start = "+start+"  end = "+end);
+
+        Object[] array_to_fill = new Object[end-start];
+        DelayedArray<T> result = new DelayedArray<T>((T[])(array_to_fill),this.getMs_delay());
+
+        for (int i=0; i<end-start; i++)
+            result.setValueAtLocation(this.getValueAtLocation(start+i),i);
+
+        return result;
+    }
+
 }

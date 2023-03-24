@@ -111,7 +111,7 @@ public class DelayedArray<T>
     public DelayedArray<T> subArray(int start, int end)
     {
 
-        if (start<0 || end<0 || start>= this.length() || end>=this.length())
+        if (start<0 || end<0 || start>= this.length() || end>this.length())
             throw new ArrayIndexOutOfBoundsException("Range from "+start+" to "+end+
                     " is out of range for a Delayed Array of length "+this.length()+".");
         if (end < start)
@@ -125,6 +125,11 @@ public class DelayedArray<T>
             result.setValueAtLocation(this.getValueAtLocation(start+i),i);
 
         return result;
+    }
+
+    public DelayedArray<T> subArray(int start)
+    {
+        return this.subArray(start, this.length());
     }
 
 }

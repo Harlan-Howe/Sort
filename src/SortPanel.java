@@ -85,16 +85,16 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         //  to do when N changes, before the algorithm runs, add them here.
         /*
         // for example....
-        sines = new double[N+1];
-        cosines = new double[N+1];
-        colors = new Color[N];
+        sines = new double[4*N+1];
+        cosines = new double[4*N+1];
+        colors = new Color[4*N+1];
 
         double delta = 2*Math.PI/N;
-        for (int i=0; i<N; i++)
+        for (int i=0; i<4*N+1; i++)
         {
             sines[i] = Math.sin(delta*i);
             cosines[i] = Math.cos(delta*i);
-            colors[i]=Color.getHSBColor((float)(1.0*i/N),1.0f,1.0f);
+            colors[i]=Color.getHSBColor((float)(1.0*i/4/N),1.0f,1.0f);
         }
         sines[N] = 0;
         cosines[N] = 1;

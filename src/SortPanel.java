@@ -89,15 +89,15 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
         cosines = new double[4*N+1];
         colors = new Color[4*N+1];
 
-        double delta = 2*Math.PI/N;
+        double delta = 2*Math.PI/4/N;
         for (int i=0; i<4*N+1; i++)
         {
             sines[i] = Math.sin(delta*i);
             cosines[i] = Math.cos(delta*i);
             colors[i]=Color.getHSBColor((float)(1.0*i/4/N),1.0f,1.0f);
         }
-        sines[N] = 0;
-        cosines[N] = 1;
+        sines[4*N] = 0;  // Let's make sure this is exact... no rounding errors!
+        cosines[4*N] = 1;
         */
 
         // -----------------------
